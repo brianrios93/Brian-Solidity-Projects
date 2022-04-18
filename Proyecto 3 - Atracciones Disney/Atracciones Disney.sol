@@ -33,12 +33,7 @@ contract Disney{
 
     //Instancia al contrato Token
     ERC20Basic private token;
-/*
-    constructor() public{
-        token = new ERC20Basic(10000); //Creación del token
-        owner = msg.sender;
-    } 
-*/
+
     //Valor de cambio de moneda Token/Ether. Valor 1 equivale a 0.01 Ether, valor 100 equivale a 100 Ether
     //Se trabaja con fracciones de Ether porque los Faucet de internet existentes entregan solo fracciones de Ether.
     uint valortoken; 
