@@ -66,8 +66,7 @@ contract Disney{
 
     //Establecer el precio de un token
     function Precio_tokens(uint _numTokens) internal view returns (uint){
-         //Conversión de tokens a Ethers: 1 Token -> 1 Ether
-    //     return _numTokens*(0.01 ether);
+ 
         return _numTokens*valortoken*(0.01 ether);
     }
 
