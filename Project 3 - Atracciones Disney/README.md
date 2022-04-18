@@ -1,3 +1,5 @@
+Enunciado:
+
 Crear un sistema para gestionar las transacciones dentro de un parque de diversiones como Disney utilizando un 
 token ERC20. Para esto se seguirá la implementación realizada por OpenZepellin con algunos pequeños cambios adaptados a esta
 aplicación. 
