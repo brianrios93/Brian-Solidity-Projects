@@ -64,14 +64,15 @@ contract Disney{
 
     // ------------------------------------------- GESTIÓN DE TOKENS -------------------------------------------
 
+    event comprando_tokens(uint, address);
+
     //Establecer el precio de un token
     function Precio_tokens(uint _numTokens) internal view returns (uint){
- 
+
         return _numTokens*valortoken*(0.01 ether);
     }
 
-    //Función para comprar tokens en Disney
-
+    //El cliente paga con Ethers y recibe tokens
     function Comprar_tokens(uint _cantTokens) public payable{
         
         //Calcular el costo de comprar la cantidad de tokens especificada
@@ -93,12 +94,14 @@ contract Disney{
 
         //Registramos la cantidad de tokens comprada en la estructura de la información de clientes
         map_clientes[msg.sender].tokens_comprados = token.balanceOf(msg.sender);
+
+        //Evento de compra de tokens
+        emit comprando_tokens(_cantTokens, msg.sender);
     }
 
-    //Función para que un cliente pueda devolver sus tokens y recuperar Ethers
+    //El cliente devuelve los tokens a este contrato y recibe el correspondiente valor en Ethers
     function DevolverTokens(uint _numTokens) public{
 
-        //require(_numTokens > 0, "Ingrese una cantidad de tokens mayor a cero");
         require(_numTokens <= token.balanceOf(msg.sender),"Error. Ingrese una cantidad menor o igual a los tokens que posee");
 
         //Devolver los tokens al Smart Contract de Disney:
@@ -108,7 +111,6 @@ contract Disney{
         encarga de hacer la conversión
         */
         msg.sender.transfer(Precio_tokens(_numTokens));
-
     }
 
     //Consultar la cantidad de tokens disponibles para comprar
@@ -218,6 +220,7 @@ contract Disney{
         
         require(map_atraccion[_atraccion].estado_atraccion == true, "La atracción no existe o está dada de baja");
 
+        //Verificar que el cliente pueda pagar por esta atracción
         require(num_tokens <= token.balanceOf(msg.sender), "Tokens insuficientes para esta atracción");
 
         //Transferir los tokens desde el cliente hacia este contrato
