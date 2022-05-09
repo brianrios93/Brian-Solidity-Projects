@@ -3,7 +3,7 @@ Hola! :wave: Mi nombre es Brian y te doy la bienvenida a mi portfolio. Acá podr
 
 Estoy en búsqueda de nuevas oportunidades de proyectos para sumarme como colaborador e incrementar mis skills y experiencia como desarrollador :raised_hands: Por cualquier oportunidad me podés dejar un mensaje por los siguientes medios:
 
-:incoming_envelope: E-mail: brianrios2712@gmail
+:incoming_envelope: E-mail: brianrios2712@gmail.com
 
 :man_technologist: LinkedIn: https://www.linkedin.com/in/brian-daniel-rios-506234129/
 
